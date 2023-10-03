@@ -20,12 +20,6 @@ function App(): JSX.Element {
     <PaperProvider>
       <SafeAreaView style={{ flex: 1 }}>
         <Header />
-
-        {/* <CustomSearchBar
-          placeholder="Search for place's"
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        /> */}
         <MapComponent region={region} setRegion={setRegion} />
       </SafeAreaView>
     </PaperProvider>
