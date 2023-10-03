@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Platform, PermissionsAndroid, TouchableOpacity, ActivityIndicator } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Platform,
+  PermissionsAndroid,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import { TextInput } from 'react-native-paper';
 import MapboxGL from '@rnmapbox/maps';
@@ -19,7 +27,6 @@ const directionsClient = MapboxDirectionsFactory({
   accessToken:
     'pk.eyJ1IjoiZmFyaGFuYTc2IiwiYSI6ImNsYnlxNWU2djBzZ3YzeG81YXhtMHRiYmcifQ.2PX7oB2ag46-Cx6ioMa3yw',
 });
-
 
 MapboxGL.setWellKnownTileServer('Mapbox');
 MapboxGL.setAccessToken(
@@ -43,12 +50,9 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
   const [city, setCity] = useState();
   const [route, setRoute] = useState(null);
 
-
-
   const MAPBOX_ACCESS_TOKEN =
     'pk.eyJ1IjoiZmFyaGFuYTc2IiwiYSI6ImNsYnlxNWU2djBzZ3YzeG81YXhtMHRiYmcifQ.2PX7oB2ag46-Cx6ioMa3yw';
   const startDestinationPoints = [
-
     {
       name: 'end',
       point: destinationPoint,
@@ -67,13 +71,12 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
           const { latitude, longitude } = position.coords;
           console.log('The latitude and longitude is:', latitude, longitude);
           setRegion([longitude, latitude]);
-          setCordinatesPoint([longitude, latitude])
-          setLoad(false)
-
+          setCordinatesPoint([longitude, latitude]);
+          setLoad(false);
         },
         (error) => {
-          setLoad(false)
-          console.log('Error getting current location:', error)
+          setLoad(false);
+          console.log('Error getting current location:', error);
         },
         { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
       );
@@ -85,14 +88,12 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
     setAllSensors(res.data);
   };
   useEffect(() => {
-
-
     fetchCurrentLocation();
     getAllSensorsData();
   }, []);
 
   const requestLocationPermission = async () => {
-    setLoad(true)
+    setLoad(true);
     if (Platform.OS === 'android') {
       try {
         const granted = await PermissionsAndroid.request(
@@ -112,12 +113,12 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
           return true;
         } else {
           console.log('You cannot use Geolocation');
-          setLoad(false)
+          setLoad(false);
 
           return false;
         }
       } catch (err) {
-        setLoad(false)
+        setLoad(false);
 
         return false;
       }
@@ -125,7 +126,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
       Geolocation.requestAuthorization('always').then((res) => {
         console.log('Permission FOR IOS', res);
         // getCurrentLocationDriver();
-        setLoad(false)
+        setLoad(false);
 
         return true;
       });
@@ -133,26 +134,19 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
   };
   const fetchRoute = async () => {
     const reqOptions = {
-      waypoints: [
-        { coordinates: region },
-        { coordinates: destinationPoint },
-      ],
+      waypoints: [{ coordinates: region }, { coordinates: destinationPoint }],
       profile: 'driving-traffic',
       geometries: 'geojson',
     };
-
 
     const res = await directionsClient.getDirections(reqOptions).send();
 
     let newRoute = makeLineString(res.body.routes[0].geometry.coordinates);
 
-
-    console.log('newroutes', newRoute)
+    console.log('newroutes', newRoute);
     setRoute(newRoute);
 
-
     const res2 = await directionsClient.getDirections(reqOptions).send();
-
   };
   useEffect(() => {
     console.log('use effect checking......');
@@ -163,8 +157,8 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
       <MapboxGL.PointAnnotation
         key={`${index}-PointAnnotation`}
         id={`${index}-PointAnnotation`}
-        coordinate={point.point}>
-
+        coordinate={point.point}
+      >
         {point.name === 'start' ? (
           <Icon name="motorcycle" size={30} color="#900" />
         ) : (
@@ -179,10 +173,10 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
     return new Promise((resolve, reject) => {
       fetch(
         // `https://api.mapbox.com/geocoding/v5/mapbox.places/${qry}.json?country=pk&access_token=${MAPBOX_ACCESS_TOKEN}`,
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?place_type=[address,poi,neighborhood,place]&access_token=${MAPBOX_ACCESS_TOKEN}`,
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?place_type=[address,poi,neighborhood,place]&access_token=${MAPBOX_ACCESS_TOKEN}`
       )
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           console.log(data, 'data of searchLocation');
           const address: any = [];
           const result = data;
@@ -196,7 +190,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
 
           resolve(address);
         })
-        .catch(err => reject(err));
+        .catch((err) => reject(err));
     });
   };
 
@@ -210,10 +204,8 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
       }, 200);
     } else {
       setDropDownHandler(false);
-
     }
   }, [searchQuery]);
-
 
   return (
     <View style={styles.page}>
@@ -221,20 +213,27 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
         <View
           style={{
             flex: 1,
-            width: "100%",
+            width: '100%',
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: '#000',
-          }}>
+          }}
+        >
           <ActivityIndicator color={'white'} />
         </View>
       ) : (
-
         <View style={styles.container}>
-          <View style={{ width: widthPercentageToDP(95), alignSelf: 'center', marginTop: hp(1), justifyContent: 'center', alignItems: 'center' }}>
+          <View
+            style={{
+              width: widthPercentageToDP(95),
+              alignSelf: 'center',
+              marginTop: hp(1),
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
             <Searchbar
               placeholder="Search for place's"
-
               value={searchQuery ? searchQuery : selectedAddress}
               onChangeText={setSearchQuery}
               icon={() => <Icon name="search" size={15} color="#000" />}
@@ -242,10 +241,10 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
                 height: 55,
                 borderRadius: 25,
                 borderWidth: 1,
-                alignItems: 'center', alignContent: 'center'
+                alignItems: 'center',
+                alignContent: 'center',
               }}
             />
-
           </View>
           <View
             style={{
@@ -258,8 +257,9 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
               zIndex: 15,
               width: widthPercentageToDP(90),
               backgroundColor: '#DFA72C',
-              alignSelf: 'center'
-            }}>
+              alignSelf: 'center',
+            }}
+          >
             {DropDownHandler &&
               result.map((addressItem, index) => (
                 <View
@@ -267,19 +267,18 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
                   style={{
                     marginVertical: 1,
                     // backgroundColor: '#000',
-                    backgroundColor: "white"
-                    ,
-                  }}>
+                    backgroundColor: 'white',
+                  }}
+                >
                   <TouchableOpacity
                     onPress={() => {
                       console.log(addressItem, 'On Press in DropDown');
                       setDropDownHandler(false);
                       setSearchQuery('');
-                      setSelectedAddress(addressItem.place_name)
+                      setSelectedAddress(addressItem.place_name);
                       setDestinationPoint(addressItem.center);
                       setCordinatesPoint(addressItem.center);
                       setDropDownHandler(false);
-
                     }}
                     activeOpacity={0.9}
                     style={{
@@ -288,23 +287,23 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
                       borderRadius: 10,
                       justifyContent: 'center',
                       paddingHorizontal: 10,
-                    }}>
+                    }}
+                  >
                     <Text
                       numberOfLines={2}
                       style={{
                         width: '100%',
                         fontSize: 16,
                         color: 'black',
-                      }}>
+                      }}
+                    >
                       {addressItem.place_name}
                     </Text>
                   </TouchableOpacity>
                 </View>
               ))}
           </View>
-          <MapboxGL.MapView style={{ flex: 1, marginTop: -77, zIndex: -1 }}
-          >
-
+          <MapboxGL.MapView style={{ flex: 1, marginTop: -77, zIndex: -1 }}>
             <View>
               <MapboxGL.Camera
                 zoomLevel={7}
@@ -337,16 +336,15 @@ const MapComponent: React.FC<MapComponentProps> = ({ region, setRegion }) => {
             </View>
           </MapboxGL.MapView>
         </View>
-      )
-      }
-    </View >
+      )}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    paddingTop: "3%",
+    paddingTop: '3%',
     backgroundColor: '#1b1d1f',
     // height: '100%',
     width: '100%',
