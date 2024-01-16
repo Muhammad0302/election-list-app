@@ -2,19 +2,27 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, FlatList } from 'react-native';
 import { data } from '../../../util/data';
 const MapComponent: React.FC = () => {
-  const [searchText, setSearchText] = useState<string>('');
+  const [searchText, setSearchText] = useState('');
+  const [filterData, setFilterData] = useState<string[][]>([]);
+  const [isFilter, setIsFilter] = useState(false);
   const handleSearch = (text: string) => {
     setSearchText(text);
+    console.log('The searchtext value is:', searchText);
+    // Filter data based on complete matches
+    const filteredData = data.filter((item) => {
+      // Check if the searchText is present in any value of the current item
+      const isMatch = item.some((element) => element === text);
 
-    // const filteredData = data.filter((item) => {
-    //   // Convert each array item to a string and check if it includes the searchText
-    //   const itemAsString = item.join(''); // Convert the array to a string
-    //   return itemAsString.includes(text);
-    // });
-
-    // Now, filteredData contains only the items that completely match the searchText
-    // console.log('The filter data is:', filteredData);
+      // Return true if there is a match, false otherwise
+      return isMatch;
+    });
+    console.log('THe match data is:', filteredData);
+    setIsFilter(true);
+    setFilterData(filteredData);
   };
+
+  // console.log('The data in the state is:', filterData);
+
   interface Item {
     gharanaNo: string;
     salsalaNo: string;
@@ -67,7 +75,7 @@ const MapComponent: React.FC = () => {
       />
       <FlatList
         ListHeaderComponent={renderHeader}
-        data={data}
+        data={isFilter ? filterData : data}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
         style={styles.flatList}
