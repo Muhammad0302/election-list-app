@@ -12,38 +12,16 @@ const MapComponent: React.FC = () => {
     salsalaNo: string;
     identityCardNo: string;
   }
-  const data: Item[] = [
-    { gharanaNo: '1', salsalaNo: '22235643', identityCardNo: '5.3466E' },
-    { gharanaNo: '2', salsalaNo: '22235644', identityCardNo: '5.3466E' },
-    { gharanaNo: '3', salsalaNo: '22235645', identityCardNo: '5.3466E' },
-    { gharanaNo: '4', salsalaNo: '22235646', identityCardNo: '5.3466E' },
-    { gharanaNo: '5', salsalaNo: '22235647', identityCardNo: '5.3466E' },
-    { gharanaNo: '1', salsalaNo: '22235643', identityCardNo: '5.3466E' },
-    { gharanaNo: '2', salsalaNo: '22235644', identityCardNo: '5.3466E' },
-    { gharanaNo: '3', salsalaNo: '22235645', identityCardNo: '5.3466E' },
-    { gharanaNo: '4', salsalaNo: '22235646', identityCardNo: '5.3466E' },
-    { gharanaNo: '5', salsalaNo: '22235647', identityCardNo: '5.3466E' },
-    { gharanaNo: '1', salsalaNo: '22235643', identityCardNo: '5.3466E' },
-    { gharanaNo: '2', salsalaNo: '22235644', identityCardNo: '5.3466E' },
-    { gharanaNo: '3', salsalaNo: '22235645', identityCardNo: '5.3466E' },
-    { gharanaNo: '4', salsalaNo: '22235646', identityCardNo: '5.3466E' },
-    { gharanaNo: '5', salsalaNo: '22235647', identityCardNo: '5.3466E' },
-    { gharanaNo: '1', salsalaNo: '22235643', identityCardNo: '5.3466E' },
-    { gharanaNo: '2', salsalaNo: '22235644', identityCardNo: '5.3466E' },
-    { gharanaNo: '3', salsalaNo: '22235645', identityCardNo: '5.3466E' },
-    { gharanaNo: '4', salsalaNo: '22235646', identityCardNo: '5.3466E' },
-    { gharanaNo: '5', salsalaNo: '22235647', identityCardNo: '5.3466E' },
-    { gharanaNo: '1', salsalaNo: '22235643', identityCardNo: '5.3466E' },
-    { gharanaNo: '2', salsalaNo: '22235644', identityCardNo: '5.3466E' },
-    { gharanaNo: '3', salsalaNo: '22235645', identityCardNo: '5.3466E' },
-    { gharanaNo: '4', salsalaNo: '22235646', identityCardNo: '5.3466E' },
-    { gharanaNo: '5', salsalaNo: '22235647', identityCardNo: '5.3466E' },
+  const data = [
+    ['1', '22235643', '5.3466E'],
+    ['2', '22235644', '5.3466E'],
+    ['3', '22235645', '5.3466E'],
   ];
-  const renderItem = ({ item }: { item: Item }) => (
+  const renderItem = ({ item, index }: { item: string[]; index: number }) => (
     <View style={styles.listItem}>
-      <Text> {item.gharanaNo}</Text>
-      <Text>{item.salsalaNo}</Text>
-      <Text>{item.identityCardNo}</Text>
+      <Text>{item[0]}</Text>
+      <Text>{item[1]}</Text>
+      <Text>{item[2]}</Text>
     </View>
   );
 
@@ -66,7 +44,8 @@ const MapComponent: React.FC = () => {
         ListHeaderComponent={renderHeader}
         data={data}
         renderItem={renderItem}
-        keyExtractor={(item) => item.gharanaNo}
+        keyExtractor={(item, index) => index.toString()}
+        // keyExtractor={(item) => item.gharanaNo}
         style={styles.flatList}
         contentContainerStyle={styles.contentContainer}
         keyboardShouldPersistTaps="handled"
