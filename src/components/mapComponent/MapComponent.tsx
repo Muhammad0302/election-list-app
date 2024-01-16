@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, FlatList } from 'react-native';
+import { View, Text, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome'; // Import the appropriate icon
+
 import { data } from '../../../util/data';
 const MapComponent: React.FC = () => {
   const [searchText, setSearchText] = useState('');
   const [filterData, setFilterData] = useState<string[][]>([]);
   const [isFilter, setIsFilter] = useState(false);
+  const [showClearIcon, setShowClearIcon] = useState(false);
   const handleSearch = (text: string) => {
     setSearchText(text);
     console.log('The searchtext value is:', searchText);
@@ -12,15 +15,19 @@ const MapComponent: React.FC = () => {
     const filteredData = data.filter((item) => {
       // Check if the searchText is present in any value of the current item
       const isMatch = item.some((element) => element === text);
-
-      // Return true if there is a match, false otherwise
       return isMatch;
     });
     console.log('THe match data is:', filteredData);
+    setShowClearIcon(text.length > 0);
     setIsFilter(true);
     setFilterData(filteredData);
   };
 
+  const clearSearch = () => {
+    setSearchText('');
+    setIsFilter(false);
+    setShowClearIcon(false);
+  };
   // console.log('The data in the state is:', filterData);
 
   interface Item {
@@ -67,12 +74,19 @@ const MapComponent: React.FC = () => {
   );
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.searchInput}
-        placeholder="Search for Gharana no..."
-        value={searchText}
-        onChangeText={handleSearch}
-      />
+      <View style={styles.searchContainer}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Search for Gharana no..."
+          value={searchText}
+          onChangeText={handleSearch}
+        />
+        {showClearIcon && (
+          <TouchableOpacity style={styles.clearIconContainer} onPress={clearSearch}>
+            <Icon name="times" size={20} color="gray" />
+          </TouchableOpacity>
+        )}
+      </View>
       <FlatList
         ListHeaderComponent={renderHeader}
         data={isFilter ? filterData : data}
@@ -94,6 +108,15 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  clearIconContainer: {
+    position: 'absolute',
+    right: 23,
+    top: 17,
   },
   containerText: {
     color: 'black',
