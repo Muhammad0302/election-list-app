@@ -68,6 +68,8 @@ const MapComponent: React.FC = () => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         style={styles.flatList}
+        contentContainerStyle={styles.contentContainer}
+        keyboardShouldPersistTaps="handled"
       />
     </View>
   );
@@ -105,6 +107,9 @@ const styles = StyleSheet.create({
     width: '80%',
     borderWidth: 1,
     borderColor: 'gray',
+  },
+  contentContainer: {
+    paddingVertical: 8,
   },
 });
 
