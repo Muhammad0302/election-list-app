@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'; // Import the appropriate icon
 
-import { data } from '../../../util/data';
+import { allData } from '../../../util/allData';
+import { homeScreenData } from '../../../util/homeScreenData';
 const MapComponent: React.FC = () => {
   const [searchText, setSearchText] = useState('');
   const [filterData, setFilterData] = useState<string[][]>([]);
@@ -12,7 +13,7 @@ const MapComponent: React.FC = () => {
     setSearchText(text);
     console.log('The searchtext value is:', searchText);
     // Filter data based on complete matches
-    const filteredData = data.filter((item) => {
+    const filteredData = allData.filter((item) => {
       // Check if the searchText is present in any value of the current item
       const isMatch = item.some((element) => element === text);
       return isMatch;
@@ -89,7 +90,7 @@ const MapComponent: React.FC = () => {
       </View>
       <FlatList
         ListHeaderComponent={renderHeader}
-        data={isFilter ? filterData : data}
+        data={isFilter ? filterData : homeScreenData}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
         style={styles.flatList}
