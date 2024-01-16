@@ -8,51 +8,50 @@ const MapComponent: React.FC = () => {
     // Implement your search logic here using the searchText state
   };
   interface Item {
-    id: string;
-    text: string;
+    gharanaNo: string;
+    salsalaNo: string;
+    identityCardNo: string;
   }
-  const data = [
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    { id: '1', text: 'Random Text 1' },
-    { id: '2', text: 'Random Text 2' },
-    { id: '3', text: 'Random Text 3' },
-    // Add more random text as needed
+  const data: Item[] = [
+    { gharanaNo: '1', salsalaNo: '22235643', identityCardNo: '5.3466E' },
+    { gharanaNo: '2', salsalaNo: '22235644', identityCardNo: '5.3466E' },
+    { gharanaNo: '3', salsalaNo: '22235645', identityCardNo: '5.3466E' },
+    { gharanaNo: '4', salsalaNo: '22235646', identityCardNo: '5.3466E' },
+    { gharanaNo: '5', salsalaNo: '22235647', identityCardNo: '5.3466E' },
+    { gharanaNo: '1', salsalaNo: '22235643', identityCardNo: '5.3466E' },
+    { gharanaNo: '2', salsalaNo: '22235644', identityCardNo: '5.3466E' },
+    { gharanaNo: '3', salsalaNo: '22235645', identityCardNo: '5.3466E' },
+    { gharanaNo: '4', salsalaNo: '22235646', identityCardNo: '5.3466E' },
+    { gharanaNo: '5', salsalaNo: '22235647', identityCardNo: '5.3466E' },
+    { gharanaNo: '1', salsalaNo: '22235643', identityCardNo: '5.3466E' },
+    { gharanaNo: '2', salsalaNo: '22235644', identityCardNo: '5.3466E' },
+    { gharanaNo: '3', salsalaNo: '22235645', identityCardNo: '5.3466E' },
+    { gharanaNo: '4', salsalaNo: '22235646', identityCardNo: '5.3466E' },
+    { gharanaNo: '5', salsalaNo: '22235647', identityCardNo: '5.3466E' },
+    { gharanaNo: '1', salsalaNo: '22235643', identityCardNo: '5.3466E' },
+    { gharanaNo: '2', salsalaNo: '22235644', identityCardNo: '5.3466E' },
+    { gharanaNo: '3', salsalaNo: '22235645', identityCardNo: '5.3466E' },
+    { gharanaNo: '4', salsalaNo: '22235646', identityCardNo: '5.3466E' },
+    { gharanaNo: '5', salsalaNo: '22235647', identityCardNo: '5.3466E' },
+    { gharanaNo: '1', salsalaNo: '22235643', identityCardNo: '5.3466E' },
+    { gharanaNo: '2', salsalaNo: '22235644', identityCardNo: '5.3466E' },
+    { gharanaNo: '3', salsalaNo: '22235645', identityCardNo: '5.3466E' },
+    { gharanaNo: '4', salsalaNo: '22235646', identityCardNo: '5.3466E' },
+    { gharanaNo: '5', salsalaNo: '22235647', identityCardNo: '5.3466E' },
   ];
   const renderItem = ({ item }: { item: Item }) => (
     <View style={styles.listItem}>
-      <Text>{item.text}</Text>
+      <Text> {item.gharanaNo}</Text>
+      <Text>{item.salsalaNo}</Text>
+      <Text>{item.identityCardNo}</Text>
+    </View>
+  );
+
+  const renderHeader = () => (
+    <View style={styles.listHeader}>
+      <Text>Gharana no</Text>
+      <Text>Salsala no</Text>
+      <Text>Identity card no</Text>
     </View>
   );
   return (
@@ -64,9 +63,10 @@ const MapComponent: React.FC = () => {
         onChangeText={handleSearch}
       />
       <FlatList
+        ListHeaderComponent={renderHeader}
         data={data}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.gharanaNo}
         style={styles.flatList}
         contentContainerStyle={styles.contentContainer}
         keyboardShouldPersistTaps="handled"
@@ -98,9 +98,19 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   listItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     padding: 10,
     borderBottomWidth: 1,
     borderBottomColor: 'gray',
+  },
+  listHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: 'gray',
+    fontWeight: 'bold',
   },
   flatList: {
     flex: 1,
