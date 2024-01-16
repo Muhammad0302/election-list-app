@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.spottroop"
+    namespace "com.electionlist"
     defaultConfig {
-        applicationId "com.spottroop"
+        applicationId "com.electionlist"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2

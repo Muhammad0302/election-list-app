@@ -1,4 +1,4 @@
-package com.spottroop;
+package com.electionlist;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
