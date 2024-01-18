@@ -29,9 +29,7 @@ const MapComponent: React.FC = () => {
 
     setSearchText(text);
     console.log('The searchtext value is:', text);
-    // Filter data based on complete matches
     const filteredData = allData.filter((item) => {
-      // Check if the searchText is present in any value of the current item
       const isMatch = item.some((element) => element === text);
       return isMatch;
     });
@@ -78,7 +76,7 @@ const MapComponent: React.FC = () => {
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Search for Gharana no..."
+          placeholder="Search for cnic no..."
           value={searchText}
           onChangeText={handleSearch}
         />
