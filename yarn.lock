@@ -7795,10 +7795,10 @@ react-native-geolocation-service@^5.3.1:
   resolved "https://registry.npmjs.org/react-native-geolocation-service/-/react-native-geolocation-service-5.3.1.tgz"
   integrity sha512-LTXPtPNmrdhx+yeWG47sAaCgQc3nG1z+HLLHlhK/5YfOgfLcAb9HAkhREPjQKPZOUx8pKZMIpdGFUGfJYtimXQ==
 
-react-native-paper@^5.10.1:
-  version "5.10.1"
-  resolved "https://registry.npmjs.org/react-native-paper/-/react-native-paper-5.10.1.tgz"
-  integrity sha512-/VNo9T87dtPBdQQI5CcaXjHtIAmlOoIe60W/iBcwUjZTVKMI///ZxcmxRSkACUYTcwyGAbkjhHHPqN2knrXp9Q==
+react-native-paper@^5.12.1:
+  version "5.12.1"
+  resolved "https://registry.npmjs.org/react-native-paper/-/react-native-paper-5.12.1.tgz"
+  integrity sha512-6ZBBJBsHxXUG5mD22Q0tArTlk5GpGlhZDkRU1RRqPtTpxWCMc7Dbc04pU3+qG0peJQCAO6GnXqUbkZ0YLnMPNg==
   dependencies:
     "@callstack/react-theme-provider" "^3.0.9"
     color "^3.1.2"

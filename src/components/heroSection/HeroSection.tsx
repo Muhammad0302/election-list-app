@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Import the appropriate icon
-
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { Menu } from 'react-native-paper';
 import { allData } from '../../../util/allData';
 import { homeScreenData } from '../../../util/homeScreenData';
 const MapComponent: React.FC = () => {
@@ -9,6 +9,9 @@ const MapComponent: React.FC = () => {
   const [filterData, setFilterData] = useState<string[][]>([]);
   const [isFilter, setIsFilter] = useState(false);
   const [showClearIcon, setShowClearIcon] = useState(false);
+  const [isMenuVisible, setMenuVisible] = useState(false);
+  const [selectedSearchOption, setSelectedSearchOption] = useState('gharana');
+
   const handleSearch = (text: string) => {
     // Remove non-numeric characters from the input
     // const numericText = text.replace(/[^0-9]/g, '');
@@ -49,6 +52,10 @@ const MapComponent: React.FC = () => {
     setIsFilter(false);
     setShowClearIcon(false);
   };
+  const handleSearchOptionChange = (option: string) => {
+    setSelectedSearchOption(option);
+    setMenuVisible(false);
+  };
   // console.log('The data in the state is:', filterData);
 
   interface Item {
@@ -85,6 +92,21 @@ const MapComponent: React.FC = () => {
             <Icon name="times" size={20} color="gray" />
           </TouchableOpacity>
         )}
+        <Menu
+          visible={isMenuVisible}
+          onDismiss={() => setMenuVisible(false)}
+          anchor={
+            <TextInput
+              style={styles.menuButton}
+              value={selectedSearchOption}
+              onTouchStart={() => setMenuVisible(true)}
+            />
+          }
+        >
+          <Menu.Item onPress={() => handleSearchOptionChange('gharana no')} title="Gharana" />
+          <Menu.Item onPress={() => handleSearchOptionChange('salsala no')} title="Salsala" />
+          <Menu.Item onPress={() => handleSearchOptionChange('cnic no')} title="CNIC" />
+        </Menu>
       </View>
       <FlatList
         ListHeaderComponent={renderHeader}
@@ -108,6 +130,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  menuButton: {
+    // height: 25,
+    width: 50,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    backgroundColor: 'white',
+    borderRadius: 13,
+    borderWidth: 1,
+    borderColor: 'gray',
+  },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -124,7 +156,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 40,
-    width: '80%',
+    width: '65%',
     borderRadius: 20,
     borderColor: 'gray',
     borderWidth: 1,
