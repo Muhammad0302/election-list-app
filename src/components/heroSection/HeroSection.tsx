@@ -10,6 +10,22 @@ const MapComponent: React.FC = () => {
   const [isFilter, setIsFilter] = useState(false);
   const [showClearIcon, setShowClearIcon] = useState(false);
   const handleSearch = (text: string) => {
+    // Remove non-numeric characters from the input
+    // const numericText = text.replace(/[^0-9]/g, '');
+    // Check if the numericText is not empty
+    // if (numericText.length === 5) {
+    //   // Add hyphens after the 5th characters
+    //   const formattedText = numericText.slice(0, 5) + ' - ';
+    //   setSearchText(formattedText);
+    // } else if (numericText.length === 12) {
+    //   // Add hyphens after the 5th and 12th characters
+    //   const formattedText =
+    //     numericText.slice(0, 5) + ' - ' + numericText.slice(5, 12) + ' - ' + numericText.slice(12);
+
+    //   setSearchText(formattedText);
+    // } else {
+    //   setSearchText(text);
+    // }
     setSearchText(text);
     console.log('The searchtext value is:', searchText);
     // Filter data based on complete matches
@@ -36,28 +52,6 @@ const MapComponent: React.FC = () => {
     salsalaNo: string;
     identityCardNo: string;
   }
-  // const data = [
-  //   ['1', '22235643', '5.3466E'],
-  //   ['2', '22235644', '5.3466E'],
-  //   ['3', '22235645', '5.3466E'],
-  //   ['4', '22235646', '5.3466E'],
-  //   ['5', '22235647', '5.3466E'],
-  //   ['6', '22235648', '5.3466E'],
-  //   ['7', '22235649', '5.3466E'],
-  //   ['8', '22235650', '5.3466E'],
-  //   ['9', '22235651', '5.3466E'],
-  //   ['10', '22235652', '5.3466E'],
-  //   ['11', '22235653', '5.3466E'],
-  //   ['12', '22235654', '5.3466E'],
-  //   ['13', '22235655', '5.3466E'],
-  //   ['14', '22235656', '5.3466E'],
-  //   ['15', '22235657', '5.3466E'],
-  //   ['16', '22235658', '5.3466E'],
-  //   ['17', '22235659', '5.3466E'],
-  //   ['18', '22235660', '5.3466E'],
-  //   ['19', '22235661', '5.3466E'],
-  //   ['20', '22235662', '5.3466E'],
-  // ];
   const renderItem = ({ item, index }: { item: string[]; index: number }) => (
     <View style={styles.listItem}>
       <Text>{item[0]}</Text>
