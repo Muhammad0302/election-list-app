@@ -26,8 +26,9 @@ const MapComponent: React.FC = () => {
     // } else {
     //   setSearchText(text);
     // }
+
     setSearchText(text);
-    console.log('The searchtext value is:', searchText);
+    console.log('The searchtext value is:', text);
     // Filter data based on complete matches
     const filteredData = allData.filter((item) => {
       // Check if the searchText is present in any value of the current item
@@ -36,7 +37,12 @@ const MapComponent: React.FC = () => {
     });
     console.log('THe match data is:', filteredData);
     setShowClearIcon(text.length > 0);
-    setIsFilter(true);
+    if (text == '') {
+      setIsFilter(false);
+    } else {
+      setIsFilter(true);
+    }
+
     setFilterData(filteredData);
   };
 
