@@ -10,7 +10,7 @@ const MapComponent: React.FC = () => {
   const [isFilter, setIsFilter] = useState(false);
   const [showClearIcon, setShowClearIcon] = useState(false);
   const [isMenuVisible, setMenuVisible] = useState(false);
-  const [selectedSearchOption, setSelectedSearchOption] = useState('gharana');
+  const [selectedSearchOption, setSelectedSearchOption] = useState('cnic');
 
   const handleSearch = (text: string) => {
     // Remove non-numeric characters from the input
@@ -83,7 +83,7 @@ const MapComponent: React.FC = () => {
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Search for cnic no..."
+          placeholder={`Search for ${selectedSearchOption} no`}
           value={searchText}
           onChangeText={handleSearch}
         />
