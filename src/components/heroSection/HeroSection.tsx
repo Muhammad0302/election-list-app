@@ -32,8 +32,20 @@ const MapComponent: React.FC = () => {
 
     setSearchText(text);
     console.log('The searchtext value is:', text);
-    const filteredData = allData.filter((item) => {
-      const isMatch = item.some((element) => element === text);
+    // const filteredData = allData.filter((item) => {
+    //   const isMatch = item.some((element) => element === text);
+    //   return isMatch;
+    // });
+    const filteredData = homeScreenData.filter((item) => {
+      let isMatch;
+      if (selectedSearchOption == 'cnic') {
+        isMatch = item[2].includes(text);
+      } else if (selectedSearchOption == 'silsala') {
+        isMatch = item[1].includes(text);
+      } else if (selectedSearchOption == 'gharana') {
+        isMatch = item[0].includes(text);
+      }
+
       return isMatch;
     });
     console.log('THe match data is:', filteredData);
