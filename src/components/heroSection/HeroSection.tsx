@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Menu } from 'react-native-paper';
 import { allData } from '../../../util/allData';
 import { homeScreenData } from '../../../util/homeScreenData';
 const MapComponent: React.FC = () => {
@@ -11,23 +10,6 @@ const MapComponent: React.FC = () => {
   const [showClearIcon, setShowClearIcon] = useState(false);
 
   const handleSearch = (text: string) => {
-    // Remove non-numeric characters from the input
-    // const numericText = text.replace(/[^0-9]/g, '');
-    // Check if the numericText is not empty
-    // if (numericText.length === 5) {
-    //   // Add hyphens after the 5th characters
-    //   const formattedText = numericText.slice(0, 5) + ' - ';
-    //   setSearchText(formattedText);
-    // } else if (numericText.length === 12) {
-    //   // Add hyphens after the 5th and 12th characters
-    //   const formattedText =
-    //     numericText.slice(0, 5) + ' - ' + numericText.slice(5, 12) + ' - ' + numericText.slice(12);
-
-    //   setSearchText(formattedText);
-    // } else {
-    //   setSearchText(text);
-    // }
-
     setSearchText(text);
     console.log('The searchtext value is:', text);
     const filteredData = allData.filter((item) => {
@@ -42,8 +24,41 @@ const MapComponent: React.FC = () => {
     } else {
       setIsFilter(true);
     }
-
     setFilterData(filteredData);
+
+    // Code for hypen adding in the searchbar
+
+    // // Remove non-numeric characters from the input
+    // const numericText = text.replace(/[^0-9]/g, '');
+    // // Check if the numericText is not empty
+    // if (numericText.length === 5) {
+    //   // Add hyphens after the 5th characters
+    //   const formattedText = numericText.slice(0, 5) + ' - ';
+    //   setSearchText(formattedText);
+    // } else if (numericText.length === 12) {
+    //   // Add hyphens after the 5th and 12th characters
+    //   const formattedText =
+    //     numericText.slice(0, 5) + ' - ' + numericText.slice(5, 12) + ' - ' + numericText.slice(12);
+
+    //   setSearchText(formattedText);
+    // } else {
+    //   setSearchText(text);
+    // }
+    // const searchValue = text.replace(/ - /g, '');
+    // console.log('The searchtext value is:', searchValue);
+    // const filteredData = allData.filter((item) => {
+    //   const isMatch = item[2].includes(searchValue);
+    //   return isMatch;
+    // });
+    // console.log('THe match data is:', filteredData);
+    // setShowClearIcon(searchValue.length > 0);
+    // if (searchValue == '') {
+    //   setIsFilter(false);
+    // } else {
+    //   setIsFilter(true);
+    // }
+
+    // setFilterData(filteredData);
   };
 
   const clearSearch = () => {
