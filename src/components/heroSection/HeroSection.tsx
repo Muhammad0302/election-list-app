@@ -9,8 +9,6 @@ const MapComponent: React.FC = () => {
   const [filterData, setFilterData] = useState<string[][]>([]);
   const [isFilter, setIsFilter] = useState(false);
   const [showClearIcon, setShowClearIcon] = useState(false);
-  const [isMenuVisible, setMenuVisible] = useState(false);
-  const [selectedSearchOption, setSelectedSearchOption] = useState('cnic');
 
   const handleSearch = (text: string) => {
     // Remove non-numeric characters from the input
@@ -32,20 +30,9 @@ const MapComponent: React.FC = () => {
 
     setSearchText(text);
     console.log('The searchtext value is:', text);
-    // const filteredData = allData.filter((item) => {
-    //   const isMatch = item.some((element) => element === text);
-    //   return isMatch;
-    // });
-    const filteredData = homeScreenData.filter((item) => {
-      let isMatch;
-      if (selectedSearchOption == 'cnic') {
-        isMatch = item[2].includes(text);
-      } else if (selectedSearchOption == 'silsala') {
-        isMatch = item[1].includes(text);
-      } else if (selectedSearchOption == 'gharana') {
-        isMatch = item[0].includes(text);
-      }
-
+    const filteredData = allData.filter((item) => {
+      // const isMatch = item.some((element) => element === text);
+      const isMatch = item[2].includes(text);
       return isMatch;
     });
     console.log('THe match data is:', filteredData);
@@ -63,10 +50,6 @@ const MapComponent: React.FC = () => {
     setSearchText('');
     setIsFilter(false);
     setShowClearIcon(false);
-  };
-  const handleSearchOptionChange = (option: string) => {
-    setSelectedSearchOption(option);
-    setMenuVisible(false);
   };
   // console.log('The data in the state is:', filterData);
 
@@ -95,7 +78,7 @@ const MapComponent: React.FC = () => {
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
-          placeholder={`Search for ${selectedSearchOption} no`}
+          placeholder={`Search by cnic no`}
           value={searchText}
           onChangeText={handleSearch}
         />
@@ -104,21 +87,6 @@ const MapComponent: React.FC = () => {
             <Icon name="times" size={20} color="gray" />
           </TouchableOpacity>
         )}
-        <Menu
-          visible={isMenuVisible}
-          onDismiss={() => setMenuVisible(false)}
-          anchor={
-            <TextInput
-              style={styles.menuButton}
-              value={selectedSearchOption}
-              onTouchStart={() => setMenuVisible(true)}
-            />
-          }
-        >
-          <Menu.Item onPress={() => handleSearchOptionChange('gharana')} title="Gharana" />
-          <Menu.Item onPress={() => handleSearchOptionChange('silsala')} title="Silsala" />
-          <Menu.Item onPress={() => handleSearchOptionChange('cnic')} title="CNIC" />
-        </Menu>
       </View>
       <FlatList
         ListHeaderComponent={renderHeader}
@@ -155,11 +123,10 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginRight: 10,
   },
   clearIconContainer: {
     position: 'absolute',
-    right: 94,
+    right: 24,
     top: 17,
   },
   containerText: {
@@ -169,7 +136,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 40,
-    width: '60%',
+    width: '80%',
     borderRadius: 20,
     borderColor: 'gray',
     borderWidth: 1,
