@@ -74,7 +74,7 @@ const MapComponent: React.FC = () => {
   const renderHeader = () => (
     <View style={styles.listHeader}>
       <Text style={styles.headerText}>Gharana no</Text>
-      <Text style={styles.headerText}>Salsala no</Text>
+      <Text style={styles.headerText}>Silsala no</Text>
       <Text style={styles.headerText}>Identity card no</Text>
     </View>
   );
@@ -103,9 +103,9 @@ const MapComponent: React.FC = () => {
             />
           }
         >
-          <Menu.Item onPress={() => handleSearchOptionChange('gharana no')} title="Gharana" />
-          <Menu.Item onPress={() => handleSearchOptionChange('salsala no')} title="Salsala" />
-          <Menu.Item onPress={() => handleSearchOptionChange('cnic no')} title="CNIC" />
+          <Menu.Item onPress={() => handleSearchOptionChange('gharana')} title="Gharana" />
+          <Menu.Item onPress={() => handleSearchOptionChange('silsala')} title="Silsala" />
+          <Menu.Item onPress={() => handleSearchOptionChange('cnic')} title="CNIC" />
         </Menu>
       </View>
       <FlatList
@@ -132,21 +132,22 @@ const styles = StyleSheet.create({
   },
   menuButton: {
     // height: 25,
-    width: 50,
+    width: 70,
     paddingHorizontal: 10,
     paddingVertical: 3,
     backgroundColor: 'white',
-    borderRadius: 13,
+    borderRadius: 5,
     borderWidth: 1,
     borderColor: 'gray',
   },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginRight: 10,
   },
   clearIconContainer: {
     position: 'absolute',
-    right: 23,
+    right: 94,
     top: 17,
   },
   containerText: {
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 40,
-    width: '65%',
+    width: '60%',
     borderRadius: 20,
     borderColor: 'gray',
     borderWidth: 1,
