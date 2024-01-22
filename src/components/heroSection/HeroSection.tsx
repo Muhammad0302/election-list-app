@@ -84,8 +84,8 @@ const MapComponent: React.FC = () => {
   const renderHeader = () => (
     <View style={styles.listHeader}>
       <Text style={styles.headerText}>Serial no</Text>
-      <Text style={styles.headerText}>Block no </Text>
-      <Text style={styles.headerText}>CNIC</Text>
+      <Text style={[styles.headerText, styles.headerBlockText]}>Block no </Text>
+      <Text style={[styles.headerText, styles.headerCnicText]}>CNIC</Text>
     </View>
   );
   return (
@@ -176,7 +176,12 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontWeight: 'bold',
-    marginRight: 30,
+  },
+  headerBlockText: {
+    marginRight: 74,
+  },
+  headerCnicText: {
+    marginRight: 45,
   },
   flatList: {
     flex: 1,
