@@ -1,4 +1,4 @@
-package com.electionlist;
+package com.PB2Zhob;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "electionlist";
+    return "PB 2 Zhob";
   }
 
   /**

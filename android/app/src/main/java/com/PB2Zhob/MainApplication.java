@@ -1,4 +1,4 @@
-package com.electionlist;
+package com.PB2Zhob;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

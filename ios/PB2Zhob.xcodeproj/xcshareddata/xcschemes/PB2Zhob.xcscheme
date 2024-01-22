@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "electionlist.app"
-               BlueprintName = "electionlist"
-               ReferencedContainer = "container:electionlist.xcodeproj">
+               BuildableName = "PB2Zhob.app"
+               BlueprintName = "PB2Zhob"
+               ReferencedContainer = "container:PB2Zhob.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "electionlistTests.xctest"
-               BlueprintName = "electionlistTests"
-               ReferencedContainer = "container:electionlist.xcodeproj">
+               BuildableName = "PB2ZhobTests.xctest"
+               BlueprintName = "PB2ZhobTests"
+               ReferencedContainer = "container:PB2Zhob.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "electionlist.app"
-            BlueprintName = "electionlist"
-            ReferencedContainer = "container:electionlist.xcodeproj">
+            BuildableName = "PB2Zhob.app"
+            BlueprintName = "PB2Zhob"
+            ReferencedContainer = "container:PB2Zhob.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "electionlist.app"
-            BlueprintName = "electionlist"
-            ReferencedContainer = "container:electionlist.xcodeproj">
+            BuildableName = "PB2Zhob.app"
+            BlueprintName = "PB2Zhob"
+            ReferencedContainer = "container:PB2Zhob.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.electionlist"
+    namespace "com.PB2Zhob"
     defaultConfig {
-        applicationId "com.electionlist"
+        applicationId "com.PB2Zhob"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
