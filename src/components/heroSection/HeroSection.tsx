@@ -178,10 +178,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   headerBlockText: {
-    marginRight: 74,
+    // marginRight: 74,
   },
   headerCnicText: {
-    marginRight: 45,
+    // marginRight: 45,
   },
   flatList: {
     flex: 1,
