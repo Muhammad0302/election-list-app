@@ -83,9 +83,9 @@ const MapComponent: React.FC = () => {
 
   const renderHeader = () => (
     <View style={styles.listHeader}>
-      <Text style={styles.headerText}>Gharana no</Text>
-      <Text style={styles.headerText}>Silsala no</Text>
-      <Text style={styles.headerText}>Identity card no</Text>
+      <Text style={styles.headerText}>Serial no</Text>
+      <Text style={styles.headerText}>Block no </Text>
+      <Text style={styles.headerText}>CNIC</Text>
     </View>
   );
   return (
@@ -176,6 +176,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontWeight: 'bold',
+    marginRight: 30,
   },
   flatList: {
     flex: 1,
