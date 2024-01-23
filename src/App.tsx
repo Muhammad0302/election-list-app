@@ -7,7 +7,7 @@ import Login from './components/Login/Login';
 import { getCredentialsFromStorage } from '../util/storageUtil';
 function App(): JSX.Element {
   const [credentials, setCredentials] = useState({ email: null, password: null });
-
+  const [counter, setCounter] = useState(0);
   useEffect(() => {
     const fetchCredentials = async () => {
       const { email, password } = await getCredentialsFromStorage();
@@ -15,18 +15,18 @@ function App(): JSX.Element {
     };
 
     fetchCredentials();
-  }, []);
+  }, [counter]);
   console.log('The credentail is:', credentials);
   return (
     <PaperProvider>
       <SafeAreaView style={{ flex: 1 }}>
         {credentials.email && credentials.password ? (
           <>
-            <Header />
+            <Header setCounter={setCounter} counter={counter} />
             <HeroSection />
           </>
         ) : (
-          <Login />
+          <Login setCounter={setCounter} counter={counter} />
         )}
 
         {/* <Login /> */}

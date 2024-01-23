@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const Login: React.FC = () => {
+interface LoginProps {
+  setCounter: React.Dispatch<React.SetStateAction<number>>;
+  counter: number;
+}
+const Login = ({ setCounter, counter }: LoginProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -20,6 +24,7 @@ const Login: React.FC = () => {
         const passwordString = JSON.stringify(password);
         await AsyncStorage.setItem('email', emailString);
         await AsyncStorage.setItem('password', passwordString);
+        setCounter(counter + 1);
       } catch (error) {
         console.error('Error saving credentials:', error);
       }
