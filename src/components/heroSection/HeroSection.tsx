@@ -75,9 +75,9 @@ const MapComponent: React.FC = () => {
   }
   const renderItem = ({ item, index }: { item: string[]; index: number }) => (
     <View style={styles.listItem}>
-      <Text>{item[0]}</Text>
-      <Text>{item[1]}</Text>
-      <Text>{item[2]}</Text>
+      <Text style={styles.listItemText}>{item[0]}</Text>
+      <Text style={styles.listItemText}>{item[1]}</Text>
+      <Text style={styles.listItemText}>{item[2]}</Text>
     </View>
   );
 
@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#808080',
   },
   menuButton: {
     // height: 25,
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: 'black',
   },
   searchContainer: {
     flexDirection: 'row',
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: '80%',
     borderRadius: 20,
-    borderColor: 'gray',
+    borderColor: 'black',
     borderWidth: 1,
     margin: 10,
     paddingLeft: 10,
@@ -163,19 +164,24 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: 'gray',
+    borderBottomColor: 'black',
   },
+  listItemText: {
+    color: 'black',
+  },
+
   listHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: 'gray',
+    borderBottomColor: 'black',
     fontWeight: 'bold',
     overflow: 'hidden', //
   },
   headerText: {
     fontWeight: 'bold',
+    color: 'black',
   },
   headerBlockText: {
     // marginRight: 74,
@@ -187,7 +193,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '80%',
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: 'black',
   },
   contentContainer: {
     paddingVertical: 8,

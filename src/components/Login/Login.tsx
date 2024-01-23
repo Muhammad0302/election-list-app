@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   headerText: {
-    color: '#f7f8f9',
+    color: 'black',
     fontWeight: 'bold',
     fontSize: 18,
     marginBottom: 20,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: 'white',
+    color: 'black',
     fontWeight: 'bold',
   },
   passwordContainer: {
