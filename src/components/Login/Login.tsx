@@ -37,6 +37,7 @@ const Login = ({ setCounter, counter }: LoginProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.formContainer}>
+        <Text style={styles.slogan}>Unlock the Power of Your Vote with PB 2 Zhob!</Text>
         <Text style={styles.headerText}>Login to PB 2 Zhob</Text>
         <TextInput
           style={styles.input}
@@ -73,6 +74,13 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     width: '80%',
+  },
+  slogan: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 10,
   },
   headerText: {
     color: 'black',
