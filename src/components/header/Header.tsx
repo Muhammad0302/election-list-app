@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 interface HeaderProps {
   setCounter: React.Dispatch<React.SetStateAction<number>>;
@@ -18,7 +18,12 @@ const Header = ({ setCounter, counter }: HeaderProps) => {
   return (
     <View style={styles.header}>
       <View style={styles.subcontainer}>
-        <Text style={styles.headerText}>PB 2 Zhob</Text>
+        {/* <Text style={styles.headerText}>PB 2 Zhob</Text> */}
+        <Image
+          source={require('../../../assets/logo.jpeg')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
         <TouchableOpacity onPress={handleLogout}>
           <Text style={styles.logoutButton}>Logout</Text>
         </TouchableOpacity>
@@ -33,9 +38,14 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#1b1d1f',
     flexDirection: 'row',
-    justifyContent: 'center', // Adjust as needed
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 10, // Add padding for better spacing
+    paddingHorizontal: 10,
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
   },
   headerText: {
     color: '#f7f8f9',
@@ -51,9 +61,9 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#1b1d1f',
     flexDirection: 'row',
-    justifyContent: 'space-between', // Adjust as needed
+    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 10, // Add padding for better spacing
+    paddingHorizontal: 10,
   },
 });
 
