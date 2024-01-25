@@ -78,14 +78,16 @@ const MapComponent: React.FC = () => {
       <Text style={styles.listItemText}>{item[0]}</Text>
       <Text style={styles.listItemText}>{item[1]}</Text>
       <Text style={styles.listItemText}>{item[2]}</Text>
+      <Text style={styles.listItemText}>{item[2]}</Text>
     </View>
   );
 
   const renderHeader = () => (
     <View style={styles.listHeader}>
-      <Text style={styles.headerText}>Serial no</Text>
+      <Text style={styles.headerText}>S no</Text>
       <Text style={[styles.headerText, styles.headerBlockText]}>Block no </Text>
       <Text style={[styles.headerText, styles.headerCnicText]}>CNIC</Text>
+      <Text style={[styles.headerText, styles.headerCnicText]}>Polling Station</Text>
     </View>
   );
   return (
@@ -126,16 +128,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#808080',
   },
-  menuButton: {
-    // height: 25,
-    width: 70,
-    paddingHorizontal: 10,
-    paddingVertical: 3,
-    backgroundColor: 'white',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: 'black',
-  },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -152,7 +144,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 40,
-    width: '80%',
+    width: '95%',
     borderRadius: 20,
     borderColor: 'black',
     borderWidth: 1,
@@ -191,7 +183,7 @@ const styles = StyleSheet.create({
   },
   flatList: {
     flex: 1,
-    width: '80%',
+    width: '95%',
     borderWidth: 1,
     borderColor: 'black',
   },

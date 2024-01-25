@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   subcontainer: {
-    width: '85%',
+    width: '100%',
     height: 50,
     backgroundColor: '#1b1d1f',
     flexDirection: 'row',
