@@ -78,7 +78,7 @@ const MapComponent: React.FC = () => {
       <Text style={styles.listItemText}>{item[0]}</Text>
       <Text style={styles.listItemText}>{item[1]}</Text>
       <Text style={styles.listItemText}>{item[2]}</Text>
-      <Text style={styles.listItemText}>{item[2]}</Text>
+      <Text style={[styles.listItemText, styles.pollingStationText]}>{item[3]}</Text>
     </View>
   );
 
@@ -141,6 +141,9 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: 'bold',
     fontSize: 18,
+  },
+  pollingStationText: {
+    maxWidth: 100,
   },
   searchInput: {
     height: 40,
