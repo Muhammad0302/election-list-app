@@ -99,7 +99,7 @@ const MapComponent: React.FC = () => {
         />
         {showClearIcon && (
           <TouchableOpacity style={styles.clearIconContainer} onPress={clearSearch}>
-            <Icon name="times" size={20} color="gray" />
+            <Icon name="times" size={20} color="black" />
           </TouchableOpacity>
         )}
       </View>
