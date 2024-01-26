@@ -20,10 +20,15 @@ const Header = ({ setCounter, counter }: HeaderProps) => {
       <View style={styles.subcontainer}>
         {/* <Text style={styles.headerText}>PB 2 Zhob</Text> */}
         <Image
-          source={require('../../../assets/logo.jpeg')}
+          source={require('../../../assets/logo1.jpeg')}
           style={styles.logo}
           resizeMode="contain"
         />
+        {/* <Image
+          source={require('../../../assets/logo2.jpeg')}
+          style={styles.logo}
+          resizeMode="contain"
+        /> */}
         <TouchableOpacity onPress={handleLogout}>
           <Text style={styles.logoutButton}>Logout</Text>
         </TouchableOpacity>
