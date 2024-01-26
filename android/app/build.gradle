@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.pb2zhob"
+    namespace "com.pb1zhob"
     defaultConfig {
-        applicationId "com.pb2zhob"
+        applicationId "com.pb1zhob"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
