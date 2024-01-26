@@ -55,9 +55,9 @@ const Login = ({ setCounter, counter }: LoginProps) => {
             value={password}
             onChangeText={(text) => setPassword(text)}
           />
-          <TouchableOpacity style={styles.eyeIcon} onPress={() => setShowPassword(!showPassword)}>
+          {/* <TouchableOpacity style={styles.eyeIcon} onPress={() => setShowPassword(!showPassword)}>
             <Icon name={showPassword ? 'eye-slash' : 'eye'} size={20} color="gray" />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
           <Text style={styles.buttonText}>Login</Text>
