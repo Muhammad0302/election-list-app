@@ -1,4 +1,4 @@
-package com.pb1zhob;
+package com.pb2zhob;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "PB 1 Zhob";
+    return "PB 2 Zhob";
   }
 
   /**

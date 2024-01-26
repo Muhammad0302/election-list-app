@@ -1,4 +1,4 @@
-package com.pb1zhob;
+package com.pb2zhob;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
