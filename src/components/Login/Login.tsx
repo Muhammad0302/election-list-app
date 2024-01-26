@@ -39,6 +39,7 @@ const Login = ({ setCounter, counter }: LoginProps) => {
       <View style={styles.formContainer}>
         {/* <Text style={styles.slogan}>Unlock the Power of Your Vote with PB 1 Zhob!</Text>
         <Text style={styles.headerText}>Login to PB 1 Zhob</Text> */}
+        {/* This is just a login */}
         <Text style={styles.slogan}>Unlock the Power of Your Vote with PB 2 Zhob!</Text>
         <Text style={styles.headerText}>Login to PB 2 Zhob</Text>
         <TextInput
