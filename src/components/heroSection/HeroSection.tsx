@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#808080',
+    backgroundColor: 'lightgrey',
   },
   searchContainer: {
     flexDirection: 'row',

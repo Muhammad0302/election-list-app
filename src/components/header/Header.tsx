@@ -29,9 +29,9 @@ const Header = ({ setCounter, counter }: HeaderProps) => {
           style={styles.logo}
           resizeMode="contain"
         /> */}
-        <TouchableOpacity onPress={handleLogout}>
+        {/* <TouchableOpacity onPress={handleLogout}>
           <Text style={styles.logoutButton}>Logout</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#1b1d1f',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     paddingHorizontal: 10,
   },

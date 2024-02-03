@@ -16,8 +16,8 @@ const Login = ({ setCounter, counter }: LoginProps) => {
       return;
     }
     if (
-      (email == 'konceptsolution@gmail.com' && password == '#secure9837328') ||
-      (email == 'pb2zhob@gmail.com' && password == 'pb2zhob303853#')
+      (email == 'konceptsolution@gmail.com' && password == 'Ajab11133') ||
+      (email == 'pb2zhob@gmail.com' && password == 'Ajab11133')
     ) {
       try {
         const emailString = JSON.stringify(email);
@@ -70,7 +70,7 @@ const Login = ({ setCounter, counter }: LoginProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#808080',
+    backgroundColor: 'lightgrey',
     justifyContent: 'center',
     alignItems: 'center',
   },
